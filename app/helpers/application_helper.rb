@@ -297,9 +297,8 @@ module ApplicationHelper
       css << 'action-' + params[:action]
     end
 
-    css << "ee-banners-#{EnterpriseToken.show_banners? ? 'visible' : 'hidden'}"
 
-    # Add browser specific classes to aid css fixes
+    # Add browser specific classes to aid css 
     css += browser_specific_classes
 
     css.join(' ')
