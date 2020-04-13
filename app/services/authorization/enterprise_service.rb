@@ -29,7 +29,7 @@
 #++
 
 class Authorization::EnterpriseService
-  attr_accessor :token
+  attr_accessor :type
 
   GUARDED_ACTIONS = %i(define_custom_style
                        multiselect_custom_fields
@@ -46,18 +46,13 @@ class Authorization::EnterpriseService
                        board_view
                        grid_widget_wp_graph).freeze
 
-  def initialize(token)
-    self.token = token
+  def initialize(type)
+        self.type = type
   end
 
   # Return a true ServiceResult if the token contains this particular action.
   def call(action)
-    allowed =
-      if token.nil? || token.token_object.nil? || token.expired?
-        false
-      else
-        process(action)
-      end
+    allowed = process(action)
 
     result(allowed)
   end
