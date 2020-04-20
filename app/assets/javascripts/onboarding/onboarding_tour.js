@@ -126,7 +126,7 @@
 
                 // Check for EE edition, and available seed data of boards.
                 // Then add boards to the tour, otherwise skip it.
-                if (eeTokenAvailable && boardsDemoDataAvailable) {
+                if (boardsDemoDataAvailable) {
                     steps = wpOnboardingTourSteps.concat(boardTourSteps).concat(menuTourSteps);
                 } else {
                     steps = wpOnboardingTourSteps.concat(menuTourSteps);
